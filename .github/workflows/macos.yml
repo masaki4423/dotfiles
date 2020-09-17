@@ -1,0 +1,14 @@
+name: CI
+
+on:
+    push:
+        branches: [master]
+
+jobs:
+    Install:
+        runs-on: macos-latest
+        name: Install macOS
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install
+              run: /bin/bash ./install.sh

@@ -1,0 +1,14 @@
+name: CI
+
+on:
+    push:
+        branches: [master]
+
+jobs:
+    Install:
+        runs-on: ubuntu-latest
+        name: Install Ubuntu
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install
+              run: /bin/bash ./install.sh
