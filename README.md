@@ -21,8 +21,10 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - iTerm2(macOS only)
 - pstree(macOS only)
 - youtube-dl(macOS only)
-- git
 - gcc(Ubuntu only)
+- ffmpeg(Ubuntu only)
+- pip3(Ubuntu only)
+- git
 - zsh
 - zsh-autosuggestions
 - zinit
@@ -34,4 +36,3 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - dutree
 - peco
 - fzf
-- ffmpeg(Ubuntu only)
