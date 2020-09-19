@@ -7,7 +7,7 @@ You can easily set up shell environment by running a shell script for initializa
 - Ubuntu(apt) or macOS
 - bash
 - curl
-- Docker
+- Docker(for Debug)
 
 ## Installation
 
