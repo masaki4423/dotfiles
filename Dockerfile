@@ -8,6 +8,6 @@ RUN apt-get update -y \
     sudo \
  && useradd -m -s /bin/bash ${USER} \
  && gpasswd -a ${USER} sudo \
- && echo "${USER}:masaki" | chpasswd
+ && echo "${USER}:dotfiles" | chpasswd
 USER ${USER}
 WORKDIR /home/dotfiles
