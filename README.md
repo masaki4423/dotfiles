@@ -17,13 +17,19 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 
 ## What is installed
 
-- Homebrew(macOS only)
-- iTerm2(macOS only)
-- pstree(macOS only)
-- youtube-dl(macOS only)
-- gcc(Ubuntu only)
-- ffmpeg(Ubuntu only)
-- pip3(Ubuntu only)
+### macOS only
+
+- Homebrew
+- iTerm2
+- pstree
+- youtube-dl
+
+### Ubuntu only
+- gcc
+- ffmpeg
+- pip3
+
+### both
 - git
 - zsh
 - zsh-autosuggestions
