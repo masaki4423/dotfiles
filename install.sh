@@ -175,6 +175,19 @@ else
     echo "already installed dutree"
 fi
 
+# Install GoLang
+if ! type go > /dev/null 2>&1; then
+    if [ "$(uname)" == 'Darwin' ]; then
+        brew install 
+    elif [ "$(uname)" == 'Linux' ]; then
+        if type "apt" > /dev/null 2>&1; then
+            sudo apt install golang -y
+        fi
+    fi
+else
+    echo "already installed golang"
+fi
+
 # Install peco
 if ! type peco > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
