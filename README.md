@@ -40,5 +40,6 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - Rust
 - exa
 - dutree
+- golang
 - peco
 - fzf
