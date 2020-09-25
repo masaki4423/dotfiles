@@ -44,6 +44,8 @@ if [ "$(uname)" == 'Darwin' ]; then
 elif [ "$(uname)" == 'Linux' ]; then
     if type "apt" > /dev/null 2>&1; then
         sudo apt update -y ; sudo apt upgrade -y
+        echo 'deb https://dl.bintray.com/dryzig/zig-ubuntu focal main' | sudo tee -a /etc/apt/sources.list
+        sudo apt update -y
     fi
 fi
 
@@ -187,6 +189,20 @@ if ! type go > /dev/null 2>&1; then
 else
     echo "already installed golang"
 fi
+
+# Install ziglang
+if ! type zig > /dev/null 2>&1; then
+    if [ "$(uname)" == 'Darwin' ]; then
+        brew install zig
+    elif [ "$(uname)" == 'Linux' ]; then
+        if type "apt" > /dev/null 2>&1; then
+            sudo apt install zig -y
+        fi
+    fi
+else
+    echo "already installed ziglang"
+fi
+
 
 # Install peco
 if ! type peco > /dev/null 2>&1; then
