@@ -41,5 +41,6 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - exa
 - dutree
 - golang
+- ziglang
 - peco
 - fzf
