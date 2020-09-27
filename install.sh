@@ -180,7 +180,7 @@ fi
 # Install GoLang
 if ! type go > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
-        brew install 
+        brew install go
     elif [ "$(uname)" == 'Linux' ]; then
         if type "apt" > /dev/null 2>&1; then
             sudo apt install golang -y
