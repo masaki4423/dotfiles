@@ -40,7 +40,7 @@ fi
 
 # Update Package manager
 if [ "$(uname)" == 'Darwin' ]; then
-    brew upgrade; brew cask upgrade
+    brew upgrade; brew upgrade --cask
 elif [ "$(uname)" == 'Linux' ]; then
     if type "apt" > /dev/null 2>&1; then
         sudo apt update -y ; sudo apt upgrade -y
