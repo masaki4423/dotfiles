@@ -23,6 +23,7 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - iTerm2
 - pstree
 - youtube-dl
+- nodebrew
 
 ### Ubuntu only
 - gcc
