@@ -249,6 +249,15 @@ if [ "$(uname)" == 'Darwin' ]; then
     fi
 fi
 
+# Install nodebrew(macOS only)
+if [ "$(uname)" == 'Darwin' ]; then
+    if ! type nodebrew > /dev/null 2>&1; then
+        brew install nodebrew
+    else
+        echo "already installed nodebrew"
+    fi
+fi
+
 # Install ffmpeg(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
     if ! type ffmpeg > /dev/null 2>&1; then
