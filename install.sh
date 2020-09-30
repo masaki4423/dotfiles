@@ -231,6 +231,17 @@ else
     echo "already installed fzf"
 fi
 
+# Install tmux
+if ! type tmux > /dev/null 2>&1; then
+    if [ "$(uname)" == 'Darwin' ]; then
+        brew install tmux
+    elif type "apt" > /dev/null 2>&1; then
+        sudo apt install tmux -y
+    fi
+else
+    echo "already installed fzf"
+fi
+
 # Install youtube-dl(macOS only)
 if [ "$(uname)" == 'Darwin' ]; then
     if ! type youtube-dl > /dev/null 2>&1; then
