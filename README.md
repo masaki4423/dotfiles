@@ -45,3 +45,4 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - ziglang
 - peco
 - fzf
+- tmux
