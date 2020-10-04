@@ -296,6 +296,15 @@ if type "apt" > /dev/null 2>&1; then
     fi
 fi
 
+# Install n(Ubuntu only)
+if type "apt" > /dev/null 2>&1; then
+    if ! type node > /dev/null 2>&1; then
+        sudo npm install n -g
+    else
+        echo "already installed n"
+    fi
+fi
+        
 if [ "$SHELL" = "/bin/zsh" ]; then
     echo "If you will use the bash, please enter 'chsh -s $(which bash)'"
 else
