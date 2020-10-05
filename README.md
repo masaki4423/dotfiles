@@ -30,6 +30,7 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - ffmpeg
 - pip3
 - nodejs
+- n
 
 ### both
 - git
