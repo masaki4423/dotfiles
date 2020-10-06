@@ -296,6 +296,15 @@ if type "apt" > /dev/null 2>&1; then
     fi
 fi
 
+# Install nodejs(Ubuntu only)
+if type "apt" > /dev/null 2>&1; then
+    if ! type npm > /dev/null 2>&1; then
+        sudo apt install npm -y
+    else
+        echo "already installed npm"
+    fi
+fi
+
 # Install n(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
     if ! type node > /dev/null 2>&1; then
