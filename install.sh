@@ -312,6 +312,8 @@ if type "apt" > /dev/null 2>&1; then
     else
         echo "already installed n"
     fi
+    sudo apt purge nodejs npm -y
+    sudo n latest
 fi
         
 if [ "$SHELL" = "/bin/zsh" ]; then
