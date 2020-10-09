@@ -267,6 +267,7 @@ if [ "$(uname)" == 'Darwin' ]; then
     else
         echo "already installed nodebrew"
     fi
+    nodebrew install latest
 fi
 
 # Install ffmpeg(Ubuntu only)
