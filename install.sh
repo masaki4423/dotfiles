@@ -297,7 +297,7 @@ if type "apt" > /dev/null 2>&1; then
     fi
 fi
 
-# Install nodejs(Ubuntu only)
+# Install npm(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
     if ! type npm > /dev/null 2>&1; then
         sudo apt install npm -y
