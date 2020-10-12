@@ -29,8 +29,6 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - gcc
 - ffmpeg
 - pip3
-- nodejs(by n)
-- npm(by n)
 - n
 
 ### both
@@ -49,3 +47,5 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - peco
 - fzf
 - tmux
+- nodejs
+- npm
