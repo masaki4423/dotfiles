@@ -59,6 +59,7 @@ alias egrep='egrep --color=auto'
 alias youtube_mp3='youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0'
 
 # emacsclient
+alias emacscli='emacsclient -t'
 alias emacskill='emacsclient -e "(kill-emacs)"'
 
 # Powerline-go
