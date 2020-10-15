@@ -270,6 +270,16 @@ if [ "$(uname)" == 'Darwin' ]; then
     nodebrew install latest
 fi
 
+# Install Alfred(macOS only)
+if [ "$(uname)" == 'Darwin' ]; then
+    cnt=`ls /Applications/ | grep Alfred | wc -l`
+    if [ $cnt -ge 1 ]; then
+        brew cask install alfred
+    else
+        echo "already installed Alfred"
+    fi
+fi
+
 # Install ffmpeg(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
     if ! type ffmpeg > /dev/null 2>&1; then
