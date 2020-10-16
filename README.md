@@ -24,6 +24,7 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - pstree
 - youtube-dl
 - nodebrew
+- Alfred
 
 ### Ubuntu only
 - gcc
