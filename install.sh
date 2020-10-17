@@ -280,6 +280,11 @@ if [ "$(uname)" == 'Darwin' ]; then
     fi
 fi
 
+# Install karabiner(macOS only)
+if [ "$(uname)" == 'Darwin' ]; then
+    brew cask install karabiner-elements
+fi
+
 # Install ffmpeg(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
     if ! type ffmpeg > /dev/null 2>&1; then
