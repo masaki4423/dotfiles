@@ -25,6 +25,7 @@ curl https://raw.githubusercontent.com/masaki4423/dotfiles/master/install.sh | b
 - youtube-dl
 - nodebrew
 - Alfred
+- karabiner
 
 ### Ubuntu only
 - gcc
