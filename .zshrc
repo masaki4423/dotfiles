@@ -98,7 +98,10 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
+
+if [ "$(uname)" == 'Darwin' ]; then
+    export PATH="$HOME/.nodebrew/current/bin:$PATH"
+fi
 ### End of Zinit's installer chunk
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
