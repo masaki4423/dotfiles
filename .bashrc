@@ -139,7 +139,9 @@ alias emacskill='emacsclient -e "(kill-emacs)"'
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
+if [ "$(uname)" == 'Darwin' ]; then
+    export PATH="$HOME/.nodebrew/current/bin:$PATH"
+fi
 
 # Powerline-go
 
