@@ -2,6 +2,7 @@
 
 DOTPATH=~/.dotfiles
 
+echo "Clone dotfiles"
 if type "git" > /dev/null 2>&1; then
     git clone --recursive "https://github.com/masaki4423/dotfiles.git" "$DOTPATH"
 
