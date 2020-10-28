@@ -31,6 +31,7 @@ if [ "$(uname)" == 'Darwin' ]; then
         xcode-select --install
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         brew install cask
+        echo "Install iTerm2"
         brew cask install iterm2
     else
         echo "already installed Homebrew"
