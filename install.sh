@@ -67,6 +67,7 @@ fi
 
 # Install C compiler
 if ! type "cc" > /dev/null 2>&1; then
+    echo "Install gcc"
     if type "apt" > /dev/null 2>&1; then
         sudo apt install -y gcc
     fi
