@@ -76,6 +76,7 @@ else
 fi
 
 # Install zsh
+echo "Install zsh"
 if ! type "/bin/zsh" > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         brew install zsh
