@@ -308,6 +308,15 @@ if type "apt" > /dev/null 2>&1; then
     fi
 fi
 
+# Install ipython3
+if ! type ipython3 > /dev/null 2>&1; then
+    if type "apt" > /dev/null 2>&1; then
+        sudo apt install -y ipython3
+    elif [ "$(uname)" == 'Darwin' ]; then
+        brew install ipython
+    fi
+fi
+
 # Install nodejs(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
     if ! type node > /dev/null 2>&1; then
