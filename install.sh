@@ -88,6 +88,7 @@ else
 fi
 
 # Install zsh-autosuggestions
+echo "Install zsh-autosuggestions"
 if [ ! -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 else
