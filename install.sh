@@ -116,6 +116,7 @@ do
 done
 
 # Install emacs
+echo "Install emacs"
 if ! type "emacs" > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         brew cask install emacs
