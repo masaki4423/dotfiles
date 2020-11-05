@@ -96,6 +96,7 @@ else
 fi
 
 # Install zinit
+echo "Install zinit"
 if [ ! -e "$HOME/.zinit/bin/zinit.zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 else
