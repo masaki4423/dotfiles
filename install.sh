@@ -14,13 +14,13 @@ elif type "curl" > /dev/null 2>&1 || type "wget" > /dev/null 2>&1; then
 
     elif type "wget" > /dev/null 2>&1; then
         wget -O - "$tarball"
-    
+
     fi | tar zxv
 
     mv -f dotfiles-master "$DOTPATH"
 
 else
-    echo "curl or wget required" 
+    echo "curl or wget required"
     exit 1
 fi
 
@@ -130,6 +130,7 @@ else
 fi
 
 # Install nmap
+echo "Install nmap"
 if ! type "nmap" > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         brew install nmap
@@ -348,7 +349,7 @@ if type "apt" > /dev/null 2>&1; then
     sudo apt purge nodejs npm -y
     sudo n latest
 fi
-        
+
 if [ "$SHELL" = "/bin/zsh" ]; then
     echo "If you will use the bash, please enter 'chsh -s $(which bash)'"
 else
