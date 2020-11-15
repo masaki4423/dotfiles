@@ -144,6 +144,7 @@ else
 fi
 
 # Install Powerline-Go
+echo "Install Powerline-go"
 if ! type "/usr/local/bin/powerline-go" > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         LATEST_POWERLINE_GO_URL=$(curl -s https://api.github.com/repos/justjanne/powerline-go/releases/latest \
