@@ -175,6 +175,7 @@ else
 fi
 
 # Install exa
+echo "Install exa"
 if ! type exa > /dev/null 2>&1; then
     $HOME/.cargo/bin/cargo install --git https://github.com/ogham/exa
 else
