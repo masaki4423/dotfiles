@@ -183,6 +183,7 @@ else
 fi
 
 # Install dutree
+echo "Install dutree"
 if ! type dutree > /dev/null 2>&1; then
     $HOME/.cargo/bin/cargo install dutree
 else
