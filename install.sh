@@ -191,6 +191,7 @@ else
 fi
 
 # Install GoLang
+echo "Install GoLang"
 if ! type go > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         brew install go
