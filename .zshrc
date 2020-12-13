@@ -102,6 +102,7 @@ export PATH="/usr/local/sbin:$PATH"
 # for macOS
 if [ "$(uname)" = "Darwin" ]; then
     export PATH="$HOME/.nodebrew/current/bin:$PATH"
+    export PATH="/Users/yoshidamasaki/Library/Python/3.9/bin:$PATH"
 fi
 ### End of Zinit's installer chunk
 
