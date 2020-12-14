@@ -205,6 +205,7 @@ else
 fi
 
 # Install ziglang
+echo "Install ziglang"
 if ! type zig > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         brew install zig
