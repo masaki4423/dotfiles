@@ -220,6 +220,7 @@ fi
 
 
 # Install peco
+echo "Install peco"
 if ! type peco > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         brew install peco
