@@ -232,6 +232,7 @@ else
 fi
 
 # Install fzf
+echo "Install fzf"
 if ! type fzf > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         brew install fzf
