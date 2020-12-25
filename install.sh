@@ -249,6 +249,7 @@ else
 fi
 
 # Install tmux
+echo "Install tmux"
 if ! type tmux > /dev/null 2>&1; then
     if [ "$(uname)" == 'Darwin' ]; then
         brew install tmux
