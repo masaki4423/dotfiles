@@ -262,6 +262,7 @@ fi
 
 # Install youtube-dl(macOS only)
 if [ "$(uname)" == 'Darwin' ]; then
+    echo "Install youtube-dl"
     if ! type youtube-dl > /dev/null 2>&1; then
         brew install youtube-dl
     else
