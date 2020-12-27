@@ -272,7 +272,7 @@ fi
 
 # Install pstree(macOS only)
 if [ "$(uname)" == 'Darwin' ]; then
-    echo "Install youtube-dl"
+    echo "Install pstree"
     if ! type pstree > /dev/null 2>&1; then
         brew install pstree
     else
