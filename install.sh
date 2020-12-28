@@ -282,6 +282,7 @@ fi
 
 # Install nodebrew(macOS only)
 if [ "$(uname)" == 'Darwin' ]; then
+    echo "Install nodebrew"
     if ! type nodebrew > /dev/null 2>&1; then
         brew install nodebrew
     else
