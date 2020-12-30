@@ -293,6 +293,7 @@ fi
 
 # Install Alfred(macOS only)
 if [ "$(uname)" == 'Darwin' ]; then
+    echo "Install Alfred"
     cnt=`ls /Applications/ | grep Alfred | wc -l`
     if [ $cnt -ge 1 ]; then
         brew cask install alfred
