@@ -1,4 +1,4 @@
-#!/bin/bash
+]#!/bin/bash
 
 DOTPATH=~/.dotfiles
 
@@ -304,6 +304,7 @@ fi
 
 # Install karabiner(macOS only)
 if [ "$(uname)" == 'Darwin' ]; then
+    echo "Install karabiner"
     brew cask install karabiner-elements
 fi
 
