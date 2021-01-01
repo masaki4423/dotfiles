@@ -310,6 +310,7 @@ fi
 
 # Install ffmpeg(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
+    echo "Install ffmpeg"
     if ! type ffmpeg > /dev/null 2>&1; then
         sudo apt install -y ffmpeg
     else
