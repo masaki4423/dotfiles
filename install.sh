@@ -320,6 +320,7 @@ fi
 
 # Install pip3(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
+    echo "Install pip3"
     if ! type pip3 > /dev/null 2>&1; then
         sudo apt install -y python3-pip
     else
