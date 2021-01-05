@@ -330,6 +330,7 @@ fi
 
 # Install ipython3
 if ! type ipython3 > /dev/null 2>&1; then
+    echo "Install ipython3"
     if type "apt" > /dev/null 2>&1; then
         sudo apt install -y ipython3
     elif [ "$(uname)" == 'Darwin' ]; then
