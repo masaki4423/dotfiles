@@ -340,6 +340,7 @@ fi
 
 # Install nodejs(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
+    echo "Install nodejs"
     if ! type node > /dev/null 2>&1; then
         sudo apt install nodejs -y
     else
