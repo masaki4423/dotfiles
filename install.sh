@@ -350,6 +350,7 @@ fi
 
 # Install npm(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
+    echo "Install npm"
     if ! type npm > /dev/null 2>&1; then
         sudo apt install npm -y
     else
