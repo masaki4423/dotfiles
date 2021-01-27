@@ -360,6 +360,7 @@ fi
 
 # Install n(Ubuntu only)
 if type "apt" > /dev/null 2>&1; then
+    echo "Install n"
     if ! type node > /dev/null 2>&1; then
         sudo npm install n -g
     else
