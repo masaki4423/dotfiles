@@ -98,7 +98,7 @@ fi
 # Install zinit
 echo "Install zinit"
 if [ ! -e "$HOME/.zinit/bin/zinit.zsh" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    sh -c "$(curl -fsSL https://git.io/zinit-install)"
 else
     echo "alread installed zinit"
 fi
@@ -141,29 +141,6 @@ if ! type "nmap" > /dev/null 2>&1; then
     fi
 else
     echo "already installed nmap"
-fi
-
-# Install Powerline-Go
-echo "Install Powerline-go"
-if ! type "/usr/local/bin/powerline-go" > /dev/null 2>&1; then
-    if [ "$(uname)" == 'Darwin' ]; then
-        LATEST_POWERLINE_GO_URL=$(curl -s https://api.github.com/repos/justjanne/powerline-go/releases/latest \
-                                | grep "browser_download_url.*darwin.*" \
-                                | cut -d : -f 2,3)
-        curl -L $LATEST_POWERLINE_GO_URL > /usr/local/bin/powerline-go
-        chmod /usr/local/bin/powerline-go
-    elif [ "$(uname)" == 'Linux' ]; then
-        LATEST_POWERLINE_GO_URL=$(curl -s https://api.github.com/repos/justjanne/powerline-go/releases/latest \
-                                | grep "browser_download_url.*linux.*" \
-                                | cut -d : -f 2,3 \
-                                | tr -d '"')
-        curl -L $LATEST_POWERLINE_GO_URL > $HOME/powerline-go
-        chmod +x $HOME/powerline-go
-        mkdir -p $HOME/.powerline-go/bin/
-        mv $HOME/powerline-go $HOME/.powerline-go/bin/
-    fi
-else
-    echo "already installed powerline-go"
 fi
 
 # Install Rust
