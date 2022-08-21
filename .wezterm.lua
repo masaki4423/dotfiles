@@ -6,6 +6,15 @@ color_scheme = 'nord'
 window_background_opacity = 0.8
 hide_tab_bar_if_only_one_tab = true
 
+
+-- full screen --
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function(cmd)
+    local tab, pane, window = mux.spawn_window(cmd or {})
+    window:gui_window():maximize()
+end)
+
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     return {
         default_prog = {"wsl.exe", "--distribution", "Slackware", "--cd", "~"},
