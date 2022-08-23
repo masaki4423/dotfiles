@@ -9,7 +9,7 @@ hide_tab_bar_if_only_one_tab = true
 -- mouse bindings setting --
 mouse_bindings = {
     {
-        event = {Up = {streak = 1, button = 'Left'}},
+        event = {Up = {streak = 2, button = 'Left'}},
         mods = 'NONE',
         action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
     },
