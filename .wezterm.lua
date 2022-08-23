@@ -6,6 +6,20 @@ color_scheme = 'nord'
 window_background_opacity = 0.8
 hide_tab_bar_if_only_one_tab = true
 
+-- mouse bindings setting --
+mouse_bindings = {
+    {
+        event = {Up = {streak = 1, button = 'Left'}},
+        mods = 'NONE',
+        action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
+    },
+    {
+        event = {Down = {streak = 2, button = 'Right'}},
+        mods = 'NONE',
+        action = wezterm.action.PasteFrom 'Clipboard',
+    },
+}
+
 
 -- full screen --
 local mux = wezterm.mux
@@ -22,6 +36,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
         color_scheme = color_scheme,
         window_background_opacity = window_background_opacity,
         hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
+        mouse_bindings = mouse_bindings,
         keys = {
             {key = 'b', mods = 'CTRL|ALT', action = wezterm.action.ActivatePaneDirection 'Left'},
             {key = 'f', mods = 'CTRL|ALT', action = wezterm.action.ActivatePaneDirection 'Right'},
@@ -42,6 +57,7 @@ elseif wezterm.target_triple == 'aarch64-apple-darwin' then
         color_scheme = color_scheme,
         window_background_opacity = window_background_opacity,
         hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
+        mouse_bindings = mouse_bindings,
         keys = {
             {key = 'b', mods = 'CTRL|CMD', action = wezterm.action.ActivatePaneDirection 'Left'},
             {key = 'f', mods = 'CTRL|CMD', action = wezterm.action.ActivatePaneDirection 'Right'},
