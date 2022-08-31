@@ -78,13 +78,12 @@
             "{{ if gt .Code 0 }}#f1184c{{ end }}"
           ],
           "foreground": "#ffffff",
-          "leading_diamond": "<transparent, #2e9599>\ue0b0</>",
           "properties": {
             "always_enabled": true
           },
-          "style": "diamond",
+          "style": "powerline",
           "template": " \ufc0c{{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }} ",
-          "trailing_diamond": "\ue0b4",
+          "powerline_symbol": "\ue0b0",
           "type": "exit"
         }
       ],
