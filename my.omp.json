@@ -82,7 +82,7 @@
             "always_enabled": true
           },
           "style": "powerline",
-          "template": " \ufc0c{{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }} ",
+          "template": " \ufc0c {{ if gt .Code 0 }}{{ .Meaning }}{{ else }}\uf42e{{ end }} ",
           "powerline_symbol": "\ue0b0",
           "type": "exit"
         }
