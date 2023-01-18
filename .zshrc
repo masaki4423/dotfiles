@@ -62,31 +62,6 @@ alias youtube_mp3='youtube-dl -i --extract-audio --audio-format mp3 --audio-qual
 alias emacscli='emacsclient -t'
 alias emacskill='emacsclient -e "(kill-emacs)"'
 
-# Powerline-go
-
-if [ -e "$HOME/.powerline-go/bin/powerline-go" ]; then
-    POWERLINE_PATH="$HOME/.powerline-go/bin"
-else
-    POWERLINE_PATH="/usr/local/bin"
-fi
-
-function powerline_precmd() {
-    PS1="$($POWERLINE_PATH/powerline-go -hostname-only-if-ssh -newline -error $? -shell zsh)"
-}
-
-function install_powerline_precmd() {
-    for s in "${precmd_functions[@]}"; do
-	if [ "$s" = "powerline_precmd" ]; then
-        return
-	fi
-    done
-    precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
-
 # zsh-autosuggestions
 if [ -e "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
     source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -125,7 +100,8 @@ zle -N select-history
 bindkey '^r' select-history
 
 # load zinit
-source "${HOME}/.zinit/bin/zinit.zsh"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 zinit load momo-lab/zsh-abbrev-alias # 略語を展開する
@@ -135,9 +111,4 @@ export ENHANCD_FILTER=fzf
 # export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HOME=1
 
-EMACS_DAEMON_PS_COUNT=`ps aux | grep "emacs --daemon" | wc -l`
-if [ $EMACS_DAEMON_PS_COUNT -eq "2" ]; then
-    echo "Already launch emacs daemon"
-else
-    emacs --daemon
-fi
+eval "$(oh-my-posh --init --shell zsh --config ~/.dotfiles/my.omp.json)"
