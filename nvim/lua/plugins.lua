@@ -2,6 +2,7 @@ vim.cmd.packadd "packer.nvim"
 
 require("packer").startup(function()
     use 'wbthomason/packer.nvim'
+
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -13,6 +14,16 @@ require("packer").startup(function()
 	    })
 	end
     }
+
+    use {
+        "akinsho/toggleterm.nvim",
+        tag = "*",
+        config = function()
+            require("toggleterm").setup({
+                open_mapping = "<C-j>",
+                direction = 'horizontal',
+            })
+    end}
 end)
 
 vim.api.nvim_create_autocmd("BufWritePost", {
