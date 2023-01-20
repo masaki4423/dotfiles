@@ -11,3 +11,6 @@ vim.opt.splitright = true
 
 -- ウィンドウ水平分割時、新しいファイルは下に開く
 vim.opt.splitbelow = true
+
+-- TrueColorを有効化
+vim.opt.termguicolors = true
