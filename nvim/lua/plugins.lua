@@ -24,6 +24,15 @@ require("packer").startup(function()
                 direction = 'horizontal',
             })
     end}
+
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "v3.*",
+        requires = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require("bufferline").setup{}
+        end
+    }
 end)
 
 vim.api.nvim_create_autocmd("BufWritePost", {
