@@ -68,7 +68,7 @@ require("packer").startup(function()
                 },
             })
             vim.api.nvim_create_autocmd("VimEnter", {
-                command = "Neotree toggle"
+                command = "Neotree toggle action=show"
             })
         end
     }
