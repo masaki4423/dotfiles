@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 -- global setting --
 font = wezterm.font 'SauceCodePro Nerd Font'
 color_scheme = 'nord'
-window_background_opacity = 0.8
+window_background_opacity = 0.9
 hide_tab_bar_if_only_one_tab = true
 
 -- mouse bindings setting --
@@ -70,6 +70,7 @@ elseif wezterm.target_triple == 'aarch64-apple-darwin' then
             {key = 'RightArrow', mods = 'CMD', action = wezterm.action.SplitHorizontal {domain = 'CurrentPaneDomain'}},
             {key = 'DownArrow', mods = 'CMD', action = wezterm.action.SplitVertical {domain = 'CurrentPaneDomain'}},
             {key = 'x', mods = 'CTRL|CMD', action = wezterm.action.ActivateCopyMode},
+            {key = 'j', mods = 'CMD', action = wezterm.action.SendKey {key = 'j', mods = 'CTRL'}}, -- for NeoVim
         }
     }
 end
