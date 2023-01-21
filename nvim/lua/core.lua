@@ -14,3 +14,6 @@ vim.opt.splitbelow = true
 
 -- TrueColorを有効化
 vim.opt.termguicolors = true
+
+-- yankしたらシステムのクリップボードにもyank
+vim.opt.clipboard:append{'unnamedplus'}
