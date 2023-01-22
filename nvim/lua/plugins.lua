@@ -6,14 +6,7 @@ require("packer").startup(function()
     use {
         'shaunsingh/nord.nvim',
         config = function()
-            vim.g.nord_contrast = true
-            vim.g.nord_borders = true
-            vim.g.nord_disable_background = true
-            vim.g.nord_italic = true
-            vim.g.nord_uniform_diff_background = false
-            vim.g.nord_bold = true
-            require('nord').set()
-            vim.cmd[[colorscheme nord]]
+            require("pluginconfig/nord")
         end
     }
 
@@ -21,30 +14,24 @@ require("packer").startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function()
-	        require('lualine').setup({
-                    options = {
-	                theme = 'everforest'
-		    }
-	    })
-	end
+            require("pluginconfig/lualine")
+        end
     }
 
     use {
         "akinsho/toggleterm.nvim",
         tag = "*",
         config = function()
-            require("toggleterm").setup({
-                open_mapping = "<C-j>",
-                direction = 'horizontal',
-            })
-    end}
+            require("pluginconfig/toggleterm")
+        end
+    }
 
     use {
         'akinsho/bufferline.nvim',
         tag = "v3.*",
         requires = 'nvim-tree/nvim-web-devicons',
         config = function()
-            require("bufferline").setup{}
+            require("pluginconfig/bufferline")
         end
     }
 
@@ -57,44 +44,28 @@ require("packer").startup(function()
             "MunifTanjim/nui.nvim",
         },
         config = function()
-            require("neo-tree").setup({
-                close_if_last_window = true,
-                filesystem = {
-                    filtered_items = {
-                        visible = false,
-                        hide_dotfiles = false,
-                        hide_gitignored = false,
-                    },
-                },
-            })
-            vim.api.nvim_create_autocmd("VimEnter", {
-                command = "Neotree toggle action=show"
-            })
+            require("pluginconfig/neo-tree")
         end
     }
 
     use {
         "petertriho/nvim-scrollbar",
         config = function()
-            require("scrollbar").setup()
+            require("pluginconfig/nvim-scrollbar")
         end
     }
 
     use {
         "kevinhwang91/nvim-hlslens",
         config = function()
-            -- require('hlslens').setup() is not required
-            require("scrollbar.handlers.search").setup({
-            -- hlslens config overrides
-            })
-        end,
+            require("pluginconfig/nvim-hlslens")
+        end
     }
 
     use {
         "lewis6991/gitsigns.nvim",
         config = function()
-            require('gitsigns').setup()
-            require("scrollbar.handlers.gitsigns").setup()
+            require("pluginconfig/gitsigns")
         end
     }
 end)
