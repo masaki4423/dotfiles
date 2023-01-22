@@ -17,3 +17,6 @@ vim.opt.termguicolors = true
 
 -- yankしたらシステムのクリップボードにもyank
 vim.opt.clipboard:append{'unnamedplus'}
+
+-- ポップアップメニューを透過
+vim.opt.pumblend=20
