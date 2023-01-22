@@ -72,8 +72,32 @@ require("packer").startup(function()
             })
         end
     }
-end)
 
+    use {
+        "petertriho/nvim-scrollbar",
+        config = function()
+            require("scrollbar").setup()
+        end
+    }
+
+    use {
+        "kevinhwang91/nvim-hlslens",
+        config = function()
+            -- require('hlslens').setup() is not required
+            require("scrollbar.handlers.search").setup({
+            -- hlslens config overrides
+            })
+        end,
+    }
+
+    use {
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require('gitsigns').setup()
+            require("scrollbar.handlers.gitsigns").setup()
+        end
+    }
+end)
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "plugins.lua" },
