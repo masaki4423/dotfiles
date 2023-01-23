@@ -56,6 +56,13 @@ require("packer").startup(function()
     }
 
     use {
+        "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("pluginconfig/nvim-web-devicons")
+        end
+    }
+
+    use {
         "petertriho/nvim-scrollbar",
         config = function()
             require("pluginconfig/nvim-scrollbar")
@@ -73,6 +80,35 @@ require("packer").startup(function()
         "lewis6991/gitsigns.nvim",
         config = function()
             require("pluginconfig/gitsigns")
+        end
+    }
+
+    use {
+        "williamboman/mason.nvim",
+        config = function()
+            require("pluginconfig/mason")
+        end
+    }
+
+    use {
+        "williamboman/mason-lspconfig",
+        config = function()
+            require("pluginconfig/mason-lspconfig")
+        end
+    }
+
+    use "neovim/nvim-lspconfig"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-cmdline"
+    use "L3MON4D3/LuaSnip"
+    use "saadparwaiz1/cmp_luasnip"
+    use "onsails/lspkind.nvim"
+    use {
+        "hrsh7th/nvim-cmp",
+        config = function()
+            require("pluginconfig/nvim-cmp")
         end
     }
 end)
