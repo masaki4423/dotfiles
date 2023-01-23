@@ -111,6 +111,22 @@ require("packer").startup(function()
             require("pluginconfig/nvim-cmp")
         end
     }
+
+    use {
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = function()
+            require("pluginconfig/lspsaga")
+        end
+    }
+
+    use {
+        "j-hui/fidget.nvim",
+        config = function()
+            require("pluginconfig/fidget")
+        end
+    }
+
 end)
 
 vim.cmd([[
