@@ -23,3 +23,6 @@ vim.opt.pumblend=20
 
 -- 検索時のハイライトを消すキーマッピング
 vim.keymap.set("n", "<ESC><ESC>", ":nohlsearch<CR>", {silent = true})
+
+-- Leaderキーを変更
+vim.g.mapleader = ","
