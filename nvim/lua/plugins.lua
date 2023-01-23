@@ -3,10 +3,17 @@ vim.cmd.packadd "packer.nvim"
 require("packer").startup(function()
     use 'wbthomason/packer.nvim'
     -- ColorScheme
+    -- use {
+        -- 'shaunsingh/nord.nvim',
+        -- config = function()
+            -- require("pluginconfig/nord")
+        -- end
+    -- }
+
     use {
-        'shaunsingh/nord.nvim',
+        'folke/tokyonight.nvim',
         config = function()
-            require("pluginconfig/nord")
+            require("pluginconfig/tokyonight")
         end
     }
 
