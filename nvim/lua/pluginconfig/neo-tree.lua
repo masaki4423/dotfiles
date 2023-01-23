@@ -7,9 +7,14 @@ require("neo-tree").setup({
             hide_gitignored = false,
         },
     },
+    event_handlers = {
+        {
+            event = "file_opened",
+            handler = function(file_path)
+                require("neo-tree").close_all()
+            end
+        },
+    },
 })
 
--- NeoVim起動時に起動
-vim.api.nvim_create_autocmd("VimEnter", {
-    command = "Neotree toggle action=show"
-})
+vim.keymap.set("n", "gn", "<Cmd>NeoTreeRevealToggle<CR>", { noremap = true, silent = true })
