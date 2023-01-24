@@ -3,6 +3,7 @@ require("tokyonight").setup({
     transparent = true,
     styles = {
         comments = { bold = true },
+        sidebars = "transparent",
     },
     on_highlights = function(hl, c)
         hl.LineNr = {
