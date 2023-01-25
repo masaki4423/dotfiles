@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format { async = true } end, bufopts)
 
     -- Docuent Highlight
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
         vim.opt_local.updatetime = 500
         vim.api.nvim_exec( [[
         augroup lsp_document_highlight
