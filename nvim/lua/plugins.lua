@@ -174,9 +174,17 @@ require("packer").startup(function()
         end
     }
 
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require("pluginconfig.indent-blankline")
+        end
+    }
+
     if packer_bootstrap then
         require("packer").sync()
     end
+
 end)
 
 vim.cmd([[
