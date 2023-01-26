@@ -21,8 +21,12 @@ vim.opt.clipboard:append{'unnamedplus'}
 -- ポップアップメニューを透過
 vim.opt.pumblend=20
 
+-- ステータスラインを分割させない
+vim.opt.laststatus = 3
+
 -- 検索時のハイライトを消すキーマッピング
 vim.keymap.set("n", "<ESC><ESC>", ":nohlsearch<CR>", {silent = true})
 
 -- Leaderキーを変更
 vim.g.mapleader = ","
+
