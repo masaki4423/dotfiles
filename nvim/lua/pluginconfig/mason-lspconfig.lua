@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
 
     -- Docuent Highlight
     if client.server_capabilities.documentHighlightProvider then
-        vim.opt_local.updatetime = 500
+        vim.opt_local.updatetime = 0
         vim.api.nvim_exec( [[
         augroup lsp_document_highlight
             autocmd! * <buffer>
