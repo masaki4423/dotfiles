@@ -179,6 +179,13 @@ local plugins ={
         end
     },
 
+    {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("pluginconfig.Comment")
+        end
+    },
+
 }
 
 require("lazy").setup(plugins)
