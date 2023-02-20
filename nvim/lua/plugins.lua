@@ -148,7 +148,8 @@ local plugins ={
     {
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
-        dependencies ={ {'nvim-lua/plenary.nvim'}, },
+        dependencies ={ {'nvim-lua/plenary.nvim'},
+                        { 'nvim-telescope/telescope-file-browser.nvim'}, },
         config = function()
             require("pluginconfig/telescope")
         end
