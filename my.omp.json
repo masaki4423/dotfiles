@@ -79,9 +79,9 @@
           "properties": {
             "always_enabled": true
           },
-          "style": "powerline",
-          "template": "<#0f689e,#0f191f>\u276f</> \ufc0c {{ if gt .Code 0 }}{{ .Meaning }}{{ else }}\uf42e{{ end }} ",
-          "powerline_symbol": "\ue0b0",
+          "style": "diamond",
+          "trailing_diamond": "\ue0b0",
+          "template": " \ufc0c {{ if gt .Code 0 }}{{ .Meaning }}{{ else }}\uf42e{{ end }} ",
           "type": "exit"
         }
       ],
