@@ -40,10 +40,10 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # alias
 
-alias ll='exa -alF'
-alias la='exa -A'
-alias l='exa -F'
-alias ls='exa -F'
+alias ll='exa -alF --icons --header --group'
+alias la='exa -A --icons'
+alias l='exa -F --icons'
+alias ls='exa -F --icons'
 
 alias python='python3'
 alias pip='pip3'
