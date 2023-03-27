@@ -43,7 +43,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias ll='exa -alF --icons --header --group'
 alias la='exa -A --icons'
 alias l='exa -F --icons'
-alias ls='exa -F --icons'
+alias ls='exa -F --icons --header --group'
 
 alias python='python3'
 alias pip='pip3'
@@ -112,3 +112,12 @@ export ENHANCD_FILTER=fzf
 export ENHANCD_DISABLE_HOME=1
 
 eval "$(oh-my-posh --init --shell zsh --config ~/.dotfiles/my.omp.json)"
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]='fg=#a6d5c4'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#02b952,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#02b952,underline,bold'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#02b952,underline,bold'
+ZSH_HIGHLIGHT_STYLES[default]='fg=#a6d5c4'
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#0f689e'
