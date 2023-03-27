@@ -30,8 +30,19 @@ wezterm.on("gui-startup", function(cmd)
 end)
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+
+    -- Launcher Setting --
+    HOME_DIR = wezterm.home_dir
+    launch_menu = {
+        {
+            label = 'PowerShell',
+            args = { HOME_DIR..'\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe' },
+        }
+    }
+
     return {
-        default_prog = {"wsl.exe", "--distribution", "Slackware", "--cd", "~"},
+        default_prog = {"wsl.exe", "--cd", "~"},
+        launch_menu = launch_menu,
         font = font,
         color_scheme = color_scheme,
         window_background_opacity = window_background_opacity,
@@ -49,6 +60,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
             {key = 'RightArrow', mods = 'CTRL', action = wezterm.action.SplitHorizontal {domain = 'CurrentPaneDomain'}},
             {key = 'DownArrow', mods = 'CTRL', action = wezterm.action.SplitVertical {domain = 'CurrentPaneDomain'}},
             {key = 'x', mods = 'CTRL|ALT', action = wezterm.action.ActivateCopyMode},
+            {key = '1', mods = 'ALT', action = wezterm.action.ShowLauncher},
         },
     }
 elseif wezterm.target_triple == 'aarch64-apple-darwin' then
@@ -71,6 +83,7 @@ elseif wezterm.target_triple == 'aarch64-apple-darwin' then
             {key = 'DownArrow', mods = 'CMD', action = wezterm.action.SplitVertical {domain = 'CurrentPaneDomain'}},
             {key = 'x', mods = 'CTRL|CMD', action = wezterm.action.ActivateCopyMode},
             {key = 'j', mods = 'CMD', action = wezterm.action.SendKey {key = 'j', mods = 'CTRL'}}, -- for NeoVim
+            {key = '1', mods = 'ALT', action = wezterm.action.ShowLauncher},
         }
     }
 end
