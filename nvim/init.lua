@@ -1,3 +1,3 @@
-require "core"
-require "terminal"
-require "plugins"
+require("core")
+require("terminal")
+require("plugins")

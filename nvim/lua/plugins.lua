@@ -1,46 +1,46 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"--single-branch",
-		"https://github.com/folke/lazy.nvim.git",
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--single-branch",
+        "https://github.com/folke/lazy.nvim.git",
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins ={
-    { 'wbthomason/packer.nvim' },
+local plugins = {
+    -- { "wbthomason/packer.nvim" },
     -- ColorScheme
     -- {
-        -- 'shaunsingh/nord.nvim',
-        -- config = function()
-            -- require("pluginconfig/nord")
-        -- end
+    -- 'shaunsingh/nord.nvim',
+    -- config = function()
+    -- require("pluginconfig/nord")
+    -- end
     -- },
 
     {
-        'folke/tokyonight.nvim',
+        "folke/tokyonight.nvim",
         config = function()
             require("pluginconfig/tokyonight")
-        end
+        end,
     },
 
     {
         "norcalli/nvim-colorizer.lua",
         config = function()
             require("pluginconfig.nvim-colorizer")
-        end
+        end,
     },
 
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies ={ 'nvim-tree/nvim-web-devicons', opt = true },
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
         config = function()
             require("pluginconfig/lualine")
-        end
+        end,
     },
 
     {
@@ -48,71 +48,75 @@ local plugins ={
         version = "*",
         config = function()
             require("pluginconfig/toggleterm")
-        end
+        end,
     },
 
     {
-        'akinsho/bufferline.nvim',
+        "akinsho/bufferline.nvim",
         version = "v3.*",
-        dependencies = 'nvim-tree/nvim-web-devicons',
+        dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("pluginconfig/bufferline")
-        end
+        end,
     },
 
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
-        dependencies ={
+        dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", 
+            "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         },
         config = function()
             require("pluginconfig/neo-tree")
-        end
+        end,
     },
 
     {
         "nvim-tree/nvim-web-devicons",
         config = function()
             require("pluginconfig/nvim-web-devicons")
-        end
+        end,
     },
 
     {
         "petertriho/nvim-scrollbar",
         config = function()
             require("pluginconfig/nvim-scrollbar")
-        end
+        end,
     },
 
     {
         "kevinhwang91/nvim-hlslens",
         config = function()
             require("pluginconfig/nvim-hlslens")
-        end
+        end,
     },
 
     {
         "lewis6991/gitsigns.nvim",
         config = function()
             require("pluginconfig/gitsigns")
-        end
+        end,
     },
 
     {
         "williamboman/mason.nvim",
+        dependencies = {
+            "jose-elias-alvarez/null-ls.nvim",
+            "nvim-lua/plenary.nvim",
+        },
         config = function()
             require("pluginconfig/mason")
-        end
+        end,
     },
 
     {
         "williamboman/mason-lspconfig",
         config = function()
             require("pluginconfig/mason-lspconfig")
-        end
+        end,
     },
 
     { "neovim/nvim-lspconfig" },
@@ -127,7 +131,7 @@ local plugins ={
         "hrsh7th/nvim-cmp",
         config = function()
             require("pluginconfig/nvim-cmp")
-        end
+        end,
     },
 
     {
@@ -135,58 +139,61 @@ local plugins ={
         branch = "main",
         config = function()
             require("pluginconfig/lspsaga")
-        end
+        end,
     },
 
     {
         "j-hui/fidget.nvim",
         config = function()
             require("pluginconfig/fidget")
-        end
+        end,
     },
 
     {
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
-        dependencies ={ {'nvim-lua/plenary.nvim'},
-                        { 'nvim-telescope/telescope-file-browser.nvim'}, },
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope-file-browser.nvim" },
+        },
         config = function()
             require("pluginconfig/telescope")
-        end
+        end,
     },
 
     {
         "nvim-treesitter/nvim-treesitter",
         build = function()
-            local ts_update = require("nvim-treesitter.install").update({with_sync = true})
+            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
             ts_update()
         end,
         config = function()
             require("pluginconfig.nvim-treesitter")
-        end
+        end,
     },
 
     {
         "windwp/nvim-autopairs",
         config = function()
             require("pluginconfig.nvim-autopairs")
-        end
+        end,
     },
 
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require("pluginconfig.indent-blankline")
-        end
+        end,
     },
 
     {
         "numToStr/Comment.nvim",
         config = function()
             require("pluginconfig.Comment")
-        end
+        end,
     },
 
+    {},
 }
 
 require("lazy").setup(plugins)
