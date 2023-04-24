@@ -8,6 +8,9 @@ mason.setup({})
 
 local null_sources = {}
 
+mason_registry.refresh()
+mason_registry.update()
+
 for _, package in ipairs(mason_registry.get_installed_packages()) do
     local package_categories = package.spec.categories[1]
     if package_categories == mason_package.Cat.Formatter then
