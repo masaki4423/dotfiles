@@ -103,6 +103,7 @@ local plugins = {
 
     {
         "williamboman/mason.nvim",
+        event = { "BufReadPre", "VimEnter" },
         dependencies = {
             "jose-elias-alvarez/null-ls.nvim",
             "nvim-lua/plenary.nvim",
@@ -114,6 +115,7 @@ local plugins = {
 
     {
         "williamboman/mason-lspconfig",
+        event = "BufReadPre",
         config = function()
             require("pluginconfig/mason-lspconfig")
         end,
