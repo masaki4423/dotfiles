@@ -1,10 +1,9 @@
-FROM ubuntu:18.04
+FROM ubuntu:latest
 
 ENV USER dotfiles
 
 RUN apt-get update -y \
  && apt-get install -y \
-    curl \
     sudo \
  && useradd -m -s /bin/bash ${USER} \
  && gpasswd -a ${USER} sudo \

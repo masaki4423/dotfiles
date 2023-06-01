@@ -58,21 +58,10 @@ alias egrep='egrep --color=auto'
 #youtube-dl
 alias youtube_mp3='youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0'
 
-# emacsclient
-alias emacscli='emacsclient -t'
-alias emacskill='emacsclient -e "(kill-emacs)"'
-
-# zsh-autosuggestions
-if [ -e "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-    source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-    source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
 # PATH
-
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="${HOME}/.local/bin:$PATH"
 
 # for macOS
 if [ "$(uname)" = "Darwin" ]; then
@@ -107,9 +96,12 @@ autoload -Uz _zinit
 zinit load momo-lab/zsh-abbrev-alias # 略語を展開する
 zinit load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
 zinit load b4b4r07/enhancd
+zinit light zsh-users/zsh-autosuggestions
+zinit light asdf-vm/asdf
 export ENHANCD_FILTER=fzf
 # export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HOME=1
+export ENHANCD_ENABLE_HOME=false
 
 eval "$(oh-my-posh --init --shell zsh --config ~/.dotfiles/my.omp.json)"
 
