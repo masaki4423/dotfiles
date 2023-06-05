@@ -6,8 +6,20 @@ function install_linux_package() {
     if [ "$1" == 'debian' ]; then
         sudo DEBIAN_FRONTEND=noninteractive \
             apt-get install -y \
-            zsh git curl wget jq python3 python3-pip gcc unzip exa peco fzf
+            zsh git curl wget fontconfig jq python3 python3-pip gcc unzip exa peco fzf
     fi
+}
+
+function install_font() {
+    # Install Source Code Pro Nerd Fonts
+    local font_version
+    font_version=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | jq -r '.tag_name')
+
+    sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/${font_version}/SourceCodePro.zip -P /usr/local/share/fonts/
+    sudo unzip /usr/local/share/fonts/SourceCodePro.zip -d /usr/local/share/fonts/
+    sudo rm /usr/local/share/fonts/SourceCodePro.zip
+
+    sudo fc-cache /usr/local/share/fonts/
 }
 
 function install_zinit() {
@@ -56,6 +68,7 @@ function main() {
         esac
     done
 
+    install_font
     install_zinit
     install_rustup
     install_zig
