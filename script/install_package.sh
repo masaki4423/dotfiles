@@ -16,7 +16,7 @@ function install_font() {
     font_version=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | jq -r '.tag_name')
 
     sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/${font_version}/SourceCodePro.zip -P /usr/local/share/fonts/
-    sudo unzip /usr/local/share/fonts/SourceCodePro.zip -d /usr/local/share/fonts/
+    sudo unzip -o /usr/local/share/fonts/SourceCodePro.zip -d /usr/local/share/fonts/
     sudo rm /usr/local/share/fonts/SourceCodePro.zip
 
     sudo fc-cache /usr/local/share/fonts/
