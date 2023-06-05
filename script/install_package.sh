@@ -3,7 +3,7 @@
 set -ue
 
 function install_linux_package() {
-    if [ "$1" == 'ubuntu' ]; then
+    if [ "$1" == 'debian' ]; then
         sudo DEBIAN_FRONTEND=noninteractive \
             apt-get install -y \
             zsh git curl wget jq python3 python3-pip gcc unzip exa peco fzf
@@ -45,7 +45,7 @@ function main() {
 
     while [ $# -gt 0 ]; do
         case ${1} in
-            ubuntu)
+            debian)
                 install_linux_package ${1}
                 shift
                 ;;

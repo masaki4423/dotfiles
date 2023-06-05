@@ -5,8 +5,8 @@ function detect_os() {
         echo 'darwin'
         return
     elif [ "$(uname)" == 'Linux' ]; then
-        if [ "$(awk -F= '/^NAME/{print $2}' /etc/os-release)" == "\"Ubuntu\"" ]; then
-            echo 'ubuntu'
+        if [ -f /etc/debian_version ]; then
+            echo 'debian'
             return
         fi
     else
