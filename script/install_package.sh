@@ -9,7 +9,7 @@ function install_linux_package() {
     if [ "$1" == 'debian' ]; then
         sudo DEBIAN_FRONTEND=noninteractive \
             apt-get install -y \
-            zsh git curl wget fontconfig jq python3 python3-pip gcc unzip exa peco fzf
+            zsh git curl wget cmake gettext fontconfig jq python3 python3-pip gcc unzip exa peco fzf
     fi
 }
 
@@ -63,9 +63,18 @@ function install_neovim() {
     print_info "Install NeoVim"
 
     mkdir -p ${HOME}/.local/
-    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P ${HOME}/
-    tar xzvf ${HOME}/nvim-linux64.tar.gz -C ${HOME}/.local/ --strip-components 1
-    rm ${HOME}/nvim-linux64.tar.gz
+
+    if [ $(arch) == "aarch64" ];then
+        mkdir -p ${HOME}/.local/bin/
+        git clone -b stable --depth=1 https://github.com/neovim/neovim ${HOME}/neovim
+        cd ${HOME}/neovim && make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local/"
+        make install
+        rm -rf ${HOME}/neovim/
+    else
+        wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P ${HOME}/
+        tar xzvf ${HOME}/nvim-linux64.tar.gz -C ${HOME}/.local/ --strip-components 1
+        rm ${HOME}/nvim-linux64.tar.gz
+    fi
 
     print_success "Installation Successed"
 }
