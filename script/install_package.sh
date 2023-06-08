@@ -116,7 +116,7 @@ function main() {
                 install_linux_package ${1}
                 shift
                 ;;
-            derwin)
+            darwin)
                 install_homebrew
                 install_homebrew_package
                 install_zinit
