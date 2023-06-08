@@ -27,7 +27,7 @@ function install_homebrew_package() {
     local brewfile_path
 
     print_info "Install Homebrew Package"
-    brewfile_path="${BASH_SOURCE[0]}")/../Brewfile
+    brewfile_path="${BASH_SOURCE[0]}"/../Brewfile
     brew bundle --file=${brewfile_path}
     print_success "Installation Successed"
 }
