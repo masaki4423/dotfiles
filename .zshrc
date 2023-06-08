@@ -63,6 +63,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${HOME}/.local/bin:$PATH"
 
+if ! type "zig" > /dev/null 2>&1; then
+    export PATH="$HOME/.zig:$PATH"
+fi
+
 # for macOS
 if [ "$(uname)" = "Darwin" ]; then
     export PATH="$HOME/.nodebrew/current/bin:$PATH"
