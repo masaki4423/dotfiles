@@ -13,6 +13,25 @@ function install_linux_package() {
     fi
 }
 
+function install_homebrew() {
+    if ! type "brew" > /dev/null 2>&1; then
+        print_info "Install Homebrew"
+        curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | NONINTERACTIVE=1 bash
+        print_success "Installation Successed"
+    else
+        print_info "Already Installed Homebrew"
+    fi
+}
+
+function install_homebrew_package() {
+    local brewfile_path
+
+    print_info "Install Homebrew Package"
+    brewfile_path="${BASH_SOURCE[0]}")/../Brewfile
+    brew bundle --file=${brewfile_path}
+    print_success "Installation Successed"
+}
+
 function install_font() {
     # Install Source Code Pro Nerd Fonts
     print_info "Install Source Code Pro Nerd Fonts"
@@ -96,6 +115,12 @@ function main() {
             debian)
                 install_linux_package ${1}
                 shift
+                ;;
+            derwin)
+                install_homebrew
+                install_homebrew_package
+                install_zinit
+                return
                 ;;
             *)
                 echo "error: invalid arguments '${1}'"
