@@ -1,8 +1,9 @@
-name: CI
+name: Ubuntu
 
 on:
     push:
         branches: [master]
+    workflow_dispatch:
 
 jobs:
     Install:
