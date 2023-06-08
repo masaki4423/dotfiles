@@ -12,4 +12,4 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Install
-              run: /bin/bash ./install.sh
+              run: HOMEBREW_BUNDLE_BREW_SKIP="awscli" /bin/bash ./install.sh
