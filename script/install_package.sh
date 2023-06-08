@@ -64,16 +64,16 @@ function install_neovim() {
 
     mkdir -p ${HOME}/.local/
 
-    if [ $(arch) == "aarch64" ];then
+    if [ $(arch) == "x86_64" ];then
+        wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P ${HOME}/
+        tar xzvf ${HOME}/nvim-linux64.tar.gz -C ${HOME}/.local/ --strip-components 1
+        rm ${HOME}/nvim-linux64.tar.gz
+    else
         mkdir -p ${HOME}/.local/bin/
         git clone -b stable --depth=1 https://github.com/neovim/neovim ${HOME}/neovim
         cd ${HOME}/neovim && make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local/"
         make install
         rm -rf ${HOME}/neovim/
-    else
-        wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P ${HOME}/
-        tar xzvf ${HOME}/nvim-linux64.tar.gz -C ${HOME}/.local/ --strip-components 1
-        rm ${HOME}/nvim-linux64.tar.gz
     fi
 
     print_success "Installation Successed"
