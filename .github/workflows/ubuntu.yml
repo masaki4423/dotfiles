@@ -3,6 +3,9 @@ name: Ubuntu
 on:
     push:
         branches: [master]
+        paths-ignore: README.md
+    schedule:
+        - cron: '0 15 * * 6'
     workflow_dispatch:
 
 jobs:
