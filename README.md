@@ -1,3 +1,6 @@
+![macOS](https://github.com/masaki4423/dotfiles/actions/workflows/macos.yml/badge.svg)
+![Ubuntu](https://github.com/masaki4423/dotfiles/actions/workflows/ubuntu.yml/badge.svg)
+
 ## Description
 This repository is my dotfiles for shell.  
 You can easily set up shell environment by running a shell script for initialization.
