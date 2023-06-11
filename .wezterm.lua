@@ -86,4 +86,26 @@ elseif wezterm.target_triple == 'aarch64-apple-darwin' then
             {key = '1', mods = 'ALT', action = wezterm.action.ShowLauncher},
         }
     }
+elseif wezterm.target_triple == 'x86_64-unknown-linux-gnu' or wezterm.target_triple == 'aarch64-unknown-linux-gnu' then
+    return {
+        font = font,
+        color_scheme = color_scheme,
+        window_background_opacity = window_background_opacity,
+        hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
+        mouse_bindings = mouse_bindings,
+        keys = {
+            {key = 'h', mods = 'CTRL|ALT', action = wezterm.action.ActivatePaneDirection 'Left'},
+            {key = 'l', mods = 'CTRL|ALT', action = wezterm.action.ActivatePaneDirection 'Right'},
+            {key = 'k', mods = 'CTRL|ALT', action = wezterm.action.ActivatePaneDirection 'Up'},
+            {key = 'j', mods = 'CTRL|ALT', action = wezterm.action.ActivatePaneDirection 'Down'},
+            {key = 'LeftArrow', mods = 'CTRL|ALT', action = wezterm.action.AdjustPaneSize {'Left', 1}},
+            {key = 'RightArrow', mods = 'CTRL|ALT', action = wezterm.action.AdjustPaneSize {'Right', 1}},
+            {key = 'UpArrow', mods = 'CTRL|ALT', action = wezterm.action.AdjustPaneSize {'Up', 1}},
+            {key = 'DownArrow', mods = 'CTRL|ALT', action = wezterm.action.AdjustPaneSize {'Down', 1}},
+            {key = 'RightArrow', mods = 'CTRL', action = wezterm.action.SplitHorizontal {domain = 'CurrentPaneDomain'}},
+            {key = 'DownArrow', mods = 'CTRL', action = wezterm.action.SplitVertical {domain = 'CurrentPaneDomain'}},
+            {key = 'x', mods = 'CTRL|ALT', action = wezterm.action.ActivateCopyMode},
+            {key = '1', mods = 'ALT', action = wezterm.action.ShowLauncher},
+        }
+    }
 end
