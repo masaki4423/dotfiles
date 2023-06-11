@@ -9,7 +9,33 @@ function install_linux_package() {
     if [ "$1" == 'debian' ]; then
         sudo DEBIAN_FRONTEND=noninteractive \
             apt-get install -y \
-            zsh git curl wget cmake gettext fontconfig jq python3 python3-pip gcc unzip exa peco fzf
+                zsh \
+                git \
+                lsb-release \
+                libwayland-dev \
+                libx11-xcb-dev \
+                libxcb-ewmh-dev \
+                libxcb-icccm4-dev \
+                libxcb-image0-dev \
+                libxcb-keysyms1-dev \
+                libxcb-randr0-dev \
+                libxcb-render0-dev \
+                libxcb-xkb-dev \
+                libxkbcommon-dev \
+                libxkbcommon-x11-dev \
+                curl \
+                wget \
+                cmake \
+                gettext \
+                fontconfig \
+                jq \
+                python3 \
+                python3-pip \
+                gcc \
+                unzip \
+                exa \
+                peco \
+                fzf
     fi
 }
 
