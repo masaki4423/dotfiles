@@ -92,6 +92,7 @@ function install_neovim() {
         git clone -b stable --depth=1 https://github.com/neovim/neovim ${HOME}/neovim
         cd ${HOME}/neovim && make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local/"
         make install
+        cd -
         rm -rf ${HOME}/neovim/
     fi
 
@@ -102,6 +103,37 @@ function install_oh_my_posh() {
     print_info "Install Oh My Posh"
 
     curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ${HOME}/.local/bin
+
+    print_success "Installation Successed"
+}
+
+function install_wezterm() {
+    print_info "Install WezTerm"
+
+    local tag_name
+    tag_name=$(curl -s https://api.github.com/repos/wez/wezterm/releases/latest | jq -r '.tag_name')
+
+    if [ $(arch) == "x86_64" ]; then
+        local distributor_id
+        local release_version
+        distributor_id=$(lsb_release -is)
+        release_version=$(lsb_release -rs)
+
+        wget https://github.com/wez/wezterm/releases/download/${tag_name}/wezterm-${tag_name}.${distributor_id}${release_version}.deb -P ${HOME}/
+        sudo dpkg -i ${HOME}/wezterm-${tag_name}.${distributor_id}${release_version}.deb 
+        rm ${HOME}/wezterm-${tag_name}.${distributor_id}${release_version}.deb 
+    else
+        git clone -b ${tag_name} --depth=1 --recursive https://github.com/wez/wezterm.git ${HOME}/wezterm
+        cd ${HOME}/wezterm
+        set +eu
+        ./get-deps
+        set -eu
+        ${HOME}/.cargo/bin/cargo build --all --release
+        bash ci/deploy.sh
+        sudo dpkg -i wezterm-20230408-112425-69ae8472*.deb
+        cd -
+        rm -rf ${HOME}/wezterm/
+    fi
 
     print_success "Installation Successed"
 }
@@ -135,6 +167,7 @@ function main() {
     install_zig
     install_neovim
     install_oh_my_posh
+    install_wezterm
 }
 
 main "$@"
