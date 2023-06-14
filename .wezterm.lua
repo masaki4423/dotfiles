@@ -20,6 +20,29 @@ mouse_bindings = {
     },
 }
 
+-- for macOS
+function basename(s)
+  return string.gsub(s, '(.*[/\\])(.*)', '%2')
+end
+
+wezterm.on("for-macos-neovim", function(window, pane)
+    local process_name = basename(pane:get_foreground_process_name())
+    -- window:set_right_status(wezterm.format {
+    --     { Text = process_name },
+    -- })
+
+    if process_name == 'nvim' then
+        window:perform_action(
+            wezterm.action.SendKey {key = 'j', mods = 'CTRL'},
+            pane
+        )
+    else
+        window:perform_action(
+            wezterm.action.SendKey {key = 'j', mods = 'CMD'},
+            pane
+        )
+    end
+end)
 
 -- full screen --
 local mux = wezterm.mux
@@ -66,6 +89,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 elseif wezterm.target_triple == 'aarch64-apple-darwin' then
     return {
         font = font,
+        front_end = 'WebGpu',
         color_scheme = color_scheme,
         window_background_opacity = window_background_opacity,
         hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
@@ -82,7 +106,7 @@ elseif wezterm.target_triple == 'aarch64-apple-darwin' then
             {key = 'RightArrow', mods = 'CMD', action = wezterm.action.SplitHorizontal {domain = 'CurrentPaneDomain'}},
             {key = 'DownArrow', mods = 'CMD', action = wezterm.action.SplitVertical {domain = 'CurrentPaneDomain'}},
             {key = 'x', mods = 'CTRL|CMD', action = wezterm.action.ActivateCopyMode},
-            {key = 'j', mods = 'CMD', action = wezterm.action.SendKey {key = 'j', mods = 'CTRL'}}, -- for NeoVim
+            {key = 'j', mods = 'CMD', action = wezterm.action.EmitEvent 'for-macos-neovim'},
             {key = '1', mods = 'ALT', action = wezterm.action.ShowLauncher},
         }
     }
