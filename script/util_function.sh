@@ -59,5 +59,5 @@ function create_symbolic_link() {
 
     ln -sf ${HOME}/.dotfiles/.zshrc ${HOME}/.zshrc
     ln -snf ${HOME}/.dotfiles/nvim ${HOME}/.config/nvim
-    ln -sf ${HOME}/.dotfiles/.wezterm.lua ${HOME}/.wezterm.lua
+    ln -snf ${HOME}/.dotfiles/wezterm ${HOME}/.config/wezterm
 }
