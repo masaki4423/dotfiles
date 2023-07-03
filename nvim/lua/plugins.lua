@@ -195,7 +195,13 @@ local plugins = {
         end,
     },
 
-    {},
+    {
+        'willothy/flatten.nvim',
+        config = function()
+            require("pluginconfig.flatten")
+        end
+    },
+
 }
 
 require("lazy").setup(plugins)
