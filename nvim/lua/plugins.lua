@@ -174,11 +174,25 @@ local plugins = {
         end,
     },
 
+    -- {
+    --     "windwp/nvim-autopairs",
+    --     config = function()
+    --         require("pluginconfig.nvim-autopairs")
+    --     end,
+    -- },
+    --
     {
-        "windwp/nvim-autopairs",
+        "hrsh7th/nvim-insx",
         config = function()
-            require("pluginconfig.nvim-autopairs")
-        end,
+            require("pluginconfig.nvim-insx")
+        end
+    },
+
+    {
+        "andymass/vim-matchup",
+        config = function()
+            vim.g.matchup_matchparen_offscreen = { method = "popup" }
+        end
     },
 
     {
