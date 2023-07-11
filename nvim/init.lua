@@ -1,4 +1,5 @@
+require("autocommand")
 require("core")
-require("terminal")
 require("plugins")
+require("terminal")
 require("user_command")

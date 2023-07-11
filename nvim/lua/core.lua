@@ -1,5 +1,6 @@
--- 行番号表示
+-- 絶対行番号と相対行番号の表示
 vim.api.nvim_win_set_option(0, "number", true)
+vim.api.nvim_win_set_option(0, "relativenumber", true)
 
 -- タブを空白4文字に変更
 vim.opt.tabstop = 4
