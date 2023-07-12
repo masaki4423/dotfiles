@@ -115,7 +115,6 @@ local plugins = {
 
     {
         "williamboman/mason-lspconfig",
-        event = "BufReadPre",
         config = function()
             require("pluginconfig/mason-lspconfig")
         end,
@@ -165,10 +164,7 @@ local plugins = {
 
     {
         "nvim-treesitter/nvim-treesitter",
-        build = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-            ts_update()
-        end,
+        build = ":TSUpdateSync",
         config = function()
             require("pluginconfig.nvim-treesitter")
         end,
@@ -216,6 +212,13 @@ local plugins = {
         end
     },
 
+    {
+      "folke/flash.nvim",
+      event = "VeryLazy",
+      config = function()
+          require("pluginconfig.flash")
+      end
+    },
 }
 
 require("lazy").setup(plugins)
