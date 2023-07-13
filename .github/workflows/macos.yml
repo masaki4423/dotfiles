@@ -15,4 +15,4 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: Install
-              run: HOMEBREW_BUNDLE_BREW_SKIP="awscli zoom" /bin/bash ./install.sh
+              run: HOMEBREW_BUNDLE_BREW_SKIP="awscli" HOMEBREW_BUNDLE_CASK_SKIP="zoom" /bin/bash ./install.sh
