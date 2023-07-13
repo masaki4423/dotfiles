@@ -1,1 +1,5 @@
-require("lspsaga").setup({})
+require("lspsaga").setup({
+    lightbulb = {
+        virtual_text = false,
+    },
+})
