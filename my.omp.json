@@ -81,7 +81,7 @@
           },
           "style": "diamond",
           "trailing_diamond": "\ue0b0",
-          "template": " \ufc0c {{ if gt .Code 0 }}{{ .Meaning }}{{ else }}\uf42e{{ end }} ",
+          "template": " {{ if gt .Code 0 }}{{ .Meaning }}{{ else }}\uf42e{{ end }} ",
           "type": "exit"
         }
       ],
