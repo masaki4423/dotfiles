@@ -59,7 +59,7 @@ local open_wezterm = function()
         app:hide()
     end
 
-    screen_watcher:start()
+    -- screen_watcher:start()
 
 end
 
