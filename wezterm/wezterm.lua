@@ -5,9 +5,9 @@ require 'event'
 
 -- global setting --
 font = wezterm.font 'SauceCodePro Nerd Font'
-color_scheme = 'nord'
-window_background_opacity = 0.9
-hide_tab_bar_if_only_one_tab = true
+color_scheme = 'Tokyo Night'
+window_background_opacity = 0.8
+window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 
@@ -26,7 +26,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
         font = font,
         color_scheme = color_scheme,
         window_background_opacity = window_background_opacity,
-        hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
+        window_decorations = window_decorations,
         mouse_bindings = mouse_bindings,
         keys = key_bindings,
     }
@@ -37,7 +37,7 @@ elseif wezterm.target_triple == 'aarch64-apple-darwin' then
         front_end = 'WebGpu',
         color_scheme = color_scheme,
         window_background_opacity = window_background_opacity,
-        hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
+        window_decorations = window_decorations,
         mouse_bindings = mouse_bindings,
         keys = key_bindings,
     }
@@ -47,7 +47,7 @@ elseif wezterm.target_triple == 'x86_64-unknown-linux-gnu' or wezterm.target_tri
         font = font,
         color_scheme = color_scheme,
         window_background_opacity = window_background_opacity,
-        hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
+        window_decorations = window_decorations,
         mouse_bindings = mouse_bindings,
         keys = key_bindings,
     }
