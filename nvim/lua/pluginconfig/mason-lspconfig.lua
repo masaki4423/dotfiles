@@ -1,7 +1,7 @@
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
@@ -21,45 +21,64 @@ local on_attach = function(client, bufnr)
     -- Docuent Highlight
     if client.server_capabilities.documentHighlightProvider then
         vim.opt_local.updatetime = 0
-        vim.api.nvim_exec( [[
+        vim.api.nvim_exec(
+            [[
         augroup lsp_document_highlight
             autocmd! * <buffer>
             autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
             autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
         augroup END
-        ]], false)
+        ]],
+            false
+        )
     end
     -- if client.server_capabilities.documentHighlightProvider then
-        -- vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-        -- vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
-        -- vim.api.nvim_create_autocmd("CursorHold", {
-            -- callback = vim.lsp.buf.document_highlight,
-            -- buffer = bufnr,
-            -- group = "lsp_document_highlight",
-            -- desc = "Document Highlight",
-        -- })
-        -- vim.api.nvim_create_autocmd("CursorMoved", {
-            -- callback = vim.lsp.buf.clear_references,
-            -- buffer = bufnr,
-            -- group = "lsp_document_highlight",
-            -- desc = "Clear All the References",
-        -- })
+    -- vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+    -- vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
+    -- vim.api.nvim_create_autocmd("CursorHold", {
+    -- callback = vim.lsp.buf.document_highlight,
+    -- buffer = bufnr,
+    -- group = "lsp_document_highlight",
+    -- desc = "Document Highlight",
+    -- })
+    -- vim.api.nvim_create_autocmd("CursorMoved", {
+    -- callback = vim.lsp.buf.clear_references,
+    -- buffer = bufnr,
+    -- group = "lsp_document_highlight",
+    -- desc = "Clear All the References",
+    -- })
     -- end
 end
 
 require("mason-lspconfig").setup()
-require('mason-lspconfig').setup_handlers({ function(server)
-  local opt = {
-    -- -- Function executed when the LSP server startup
-    -- on_attach = function(client, bufnr)
-    --   local opts = { noremap=true, silent=true }
-    --   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    --   vim.cmd 'autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)'
-    -- end,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(
-      vim.lsp.protocol.make_client_capabilities()
-    ),
-    on_attach = on_attach,
-  }
-  require('lspconfig')[server].setup(opt)
-end })
+require("mason-lspconfig").setup_handlers({
+    function(server)
+        local opt = {
+            -- -- Function executed when the LSP server startup
+            -- on_attach = function(client, bufnr)
+            --     local opts = { noremap = true, silent = true }
+            --     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+            --     vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format(nil, 1000)")
+            -- end,
+            capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+            on_attach = on_attach,
+        }
+        require("lspconfig")[server].setup(opt)
+    end,
+    ["clangd"] = function()
+        -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        capabilities.offsetEncoding = "utf-8"
+        require("lspconfig").clangd.setup({
+            capabilities = capabilities,
+        })
+    end,
+    ["ruff-lsp"] = function()
+        local attach = function(client, bufnr)
+            client.server_capabilities.hoverProvider = false
+        end
+        require("lspconfig").ruff_lsp.setup({
+            on_attach = attach,
+        })
+    end,
+})

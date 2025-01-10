@@ -53,7 +53,7 @@ local plugins = {
 
     {
         "akinsho/bufferline.nvim",
-        version = "v3.*",
+        version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("pluginconfig/bufferline")
@@ -103,11 +103,12 @@ local plugins = {
 
     {
         "williamboman/mason.nvim",
-        event = { "BufReadPre", "VimEnter" },
+        -- event = { "BufReadPre", "VimEnter" },
         dependencies = {
-            "jose-elias-alvarez/null-ls.nvim",
+            -- "jose-elias-alvarez/null-ls.nvim",
             "nvim-lua/plenary.nvim",
         },
+        build = ":MasonUpdate",
         config = function()
             require("pluginconfig/mason")
         end,
@@ -125,7 +126,11 @@ local plugins = {
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-cmdline" },
-    { "L3MON4D3/LuaSnip" },
+    {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp"
+    },
     { "saadparwaiz1/cmp_luasnip" },
     { "onsails/lspkind.nvim" },
     {
@@ -207,9 +212,9 @@ local plugins = {
 
     {
         'willothy/flatten.nvim',
-        config = function()
-            require("pluginconfig.flatten")
-        end
+        config = true,
+        lazy = false,
+        priority = 1001,
     },
 
     {
@@ -218,6 +223,34 @@ local plugins = {
       config = function()
           require("pluginconfig.flash")
       end
+    },
+
+    {
+        "iamcco/markdown-preview.nvim",
+        build = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    },
+
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+            require("pluginconfig.nvim-dap")
+        end,
+    },
+
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        config = function()
+            require("pluginconfig.nvim-dap-virtual-text")
+        end,
+    },
+
+    {
+        "folke/neodev.nvim",
+        config = function()
+            require("pluginconfig.neodev")
+        end,
     },
 }
 
